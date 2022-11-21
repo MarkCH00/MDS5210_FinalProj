@@ -51,7 +51,7 @@ def get_dataset_names():
     return sorted(
         name for name in datasets.__dict__
         if not name.startswith("__") and callable(datasets.__dict__[name])
-    ) + ['Digits']
+    ) + ['Digits', 'Food']
 
 
 def get_dataset(dataset_name, root, source, target, train_source_transform, val_transform, train_target_transform=None):
@@ -66,6 +66,17 @@ def get_dataset(dataset_name, root, source, target, train_source_transform, val_
                                                                   download=True, transform=val_transform)
         class_names = datasets.MNIST.get_classes()
         num_classes = len(class_names)
+        
+    elif dataset_name == "Food":
+        train_source_dataset = datasets.__dict__[source[0]](osp.join(root, source[0]),
+                                                            transform=train_source_transform)
+        train_target_dataset = datasets.__dict__[target[0]](osp.join(root, target[0]),
+                                                            transform=train_target_transform)
+        val_dataset = test_dataset = datasets.__dict__[target[0]](osp.join(root, target[0]), split='test',
+                                                                transform=val_transform)
+        class_names = datasets.UPMC32.get_classes()
+        num_classes = len(class_names)
+        
     elif dataset_name in datasets.__dict__:
         # load datasets from tllib.vision.datasets
         dataset = datasets.__dict__[dataset_name]

@@ -21,11 +21,14 @@ from .retinopathy import Retinopathy
 from .eurosat import EuroSAT
 from .resisc45 import Resisc45
 from .food101 import Food101
+from .upmc101 import UPMC101
+from .upmc32 import UPMC32
+from .food32 import Food32
 from .sun397 import SUN397
 from .caltech101 import Caltech101
 from .cifar import CIFAR10, CIFAR100
 
 __all__ = ['ImageList', 'Office31', 'OfficeHome', "VisDA2017", "OfficeCaltech", "DomainNet", "ImageNetR",
            "ImageNetSketch", "Aircraft", "cub200", "StanfordCars", "StanfordDogs", "COCO70", "OxfordIIITPets", "PACS",
-           "DTD", "OxfordFlowers102", "PatchCamelyon", "Retinopathy", "EuroSAT", "Resisc45", "Food101", "SUN397",
-           "Caltech101", "CIFAR10", "CIFAR100"]
+           "DTD", "OxfordFlowers102", "PatchCamelyon", "Retinopathy", "EuroSAT", "Resisc45", "Food101", "Food32", "UPMC32",
+           "UPMC101", "SUN397", "Caltech101", "CIFAR10", "CIFAR100"]
