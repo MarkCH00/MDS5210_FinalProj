@@ -117,6 +117,7 @@ def main(args: argparse.Namespace):
               lr_scheduler, epoch, args)
 
         # evaluate on validation set
+        # NOTE: uncomment this line when making prediction on Kaggle's Food dataset
         acc1 = utils.validate(val_loader, classifier, args, device)
 
         # remember best acc@1 and save checkpoint
